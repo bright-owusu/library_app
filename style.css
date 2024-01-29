@@ -1,0 +1,297 @@
+:root {
+  --color-primary: #252525;
+  --color-secondary: rgb(255, 255, 255, 0.1);
+  --color-secondary-btn: rgb(255, 255, 255, 0.3);
+  --color-teal: #009d8d;
+  --color-teal-hover: #008376;
+  --color-read: rgb(0, 255, 0);
+  --color-read-btn: rgb(0, 255, 0, 0.5);
+  --color-read-background: rgb(0, 255, 0, 0.15);
+  --color-unread: rgb(255, 187, 0);
+  --color-unread-btn: rgb(255, 187, 0, 0.5);
+  --color-unread-background: rgb(255, 187, 0, 0.15);
+  --color-danger: rgb(255, 65, 115);
+  --color-danger-hover: rgb(255, 0, 68);
+}
+
+* {
+  font-family: 'Roboto', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 
+  sans-serif;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Reset styles for the input field */
+input {
+  border: none; /* Remove border */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+  outline: none; /* Remove outline */
+  /* Additional styles can be added as needed */
+  background-color: var(--color-secondary);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 100vh; */
+  
+  background-color: var(--color-primary);
+}
+
+.header {
+  position: fixed;
+  box-sizing: border-box; /* Ensure padding and border don't increase the width */
+  background-color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  padding: 1rem 3rem;
+  width: 100vw;
+  height: auto;
+}
+.header > a:hover {
+  background-color: var(--color-secondary);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+}
+
+.header > a.btn {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.main, #books-display {
+  box-sizing: border-box; /* Ensure padding and border don't increase the width */
+  /* background-color: var(--color-secondary); */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 20px; /* Adjust the gap between columns */
+  /* justify-content: center; */
+  width: 940px;
+  /* height: 100vh; */
+}
+.main {
+  padding-top: 100px;
+}
+
+a.btn#add-book-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background-color: var(--color-teal);
+  transition: all 0.5s ease;
+}
+a.btn#add-book-btn:hover {
+  background-color: var(--color-teal-hover);
+  transform: scale(1.1);
+}
+a.btn#add-book-btn:active {
+  transform: scale(0.9);
+}
+
+svg {
+  fill: white;
+}
+
+.custom-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; /* Set the width as needed */
+  padding: 20px;
+  background-color: var(--color-primary); /* Set the background color */
+  border: 1px solid var(--color-teal); /* Set border properties as needed */
+  border-radius: 10px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  z-index: 1000; /* Set a high z-index to ensure it appears above other elements */
+}
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+.dialog-heading {
+  display: flex;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+.custom-dialog button {
+  background-color: var(--color-teal);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.custom-dialog button:hover {
+  background-color: var(--color-teal-hover);
+  transition: all 0.2s ease-in-out;
+}
+.modal > form > div > input {
+  outline: 2px solid var(--color-secondary);
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+.modal > form > div > input:focus {
+  outline: 2px solid var(--color-teal);
+  transition: all 0.5s ease-in-out;
+}
+.input-field {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  margin-bottom: 1rem;
+}
+#read {
+  margin-bottom: 1rem;
+}
+#close-modal > a {
+  font-size: 0.8rem;
+  background-color: var(--color-danger);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+#close-modal > a:hover {
+  background-color: var(--color-danger-hover);
+  transition: all 0.5s ease-in-out;
+}
+.modal-btns {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#no-books {
+  margin-top: 100px;
+  display:  flex;
+  justify-content: center;
+  font-size: small;
+}
+#no-books > .card {
+  display: grid;
+  grid-template-columns: 5px 1fr;
+}
+#no-books > .card > .band {
+  background-color: var(--color-secondary);
+  border-radius: 5px 0 0 5px;
+}
+#no-books > .card > .content {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 5px 5px 0;
+  padding: 1rem 0.5rem;
+
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-secondary);
+  width: 540px;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-card {
+  display: grid;
+  grid-template-rows: 2px 1fr;
+  height: 200px;
+}
+.book-card > .content {
+  display: flex;
+  flex-direction: column;
+  /* width: auto; */
+  box-sizing: border-box; /* Ensure padding and border don't increase the width */
+  background-color: var(--color-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 2px 2px;
+}
+.book-card > .band {
+  border-radius: 2px 2px 0 0;
+}
+.book-card.read > .band {
+  background-color: var(--color-read);
+  /* border: 1px solid var(--color-secondary); */
+}
+.book-card.unread > .band {
+  background-color: var(--color-unread);
+}
+.book-info {
+  font-weight: bold;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.author, .pages {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: small;
+}
+.author {
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.card-btns {
+  /* background-color: var(--color-secondary); */
+  display: flex;
+  margin-top: auto;
+  gap: 1.5rem;
+  /* align-items: center; */
+  justify-content: space-evenly;
+}
+/* delete btn */
+.card-btns > a.btn-delete > svg path {
+  fill: var(--color-secondary-btn);
+  transition: all 0.5s ease-in-out;
+}
+.card-btns > a.btn-delete:hover > svg path {
+  fill: var(--color-danger-hover);
+}
+/* read btn */
+.card-btns > a.btn-read.read > svg path {
+  fill: var(--color-read-btn);
+  transition: all 0.5s ease-in-out;
+}
+.card-btns > a.btn-read.read:hover > svg path {
+  fill: var(--color-read);
+}
+.card-btns > a.btn-read.unread > svg path {
+  fill: var(--color-unread-btn);
+  transition: all 0.5s ease-in-out;
+}
+.card-btns > a.btn-read.unread:hover > svg path {
+  fill: var(--color-unread);
+}
+/* edit btn */
+.card-btns > a.btn-edit > svg path {
+  fill: var(--color-secondary-btn);
+  transition: all 0.5s ease-in-out;
+}
+.card-btns > a.btn-edit:hover > svg path {
+  fill: white;
+}
+/* btn active scaling */
+.card-btns > a.btn:active {
+  transform: scale(0.9);
+}

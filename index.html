@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="library.js" defer></script>
+  <title>Library</title>
+  <!-- Favicon (replace 'favicon.ico' with your own favicon) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional: Google Fonts (replace with your preferred fonts) -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" 
+  rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <div class="logo">Library</div>
+    <a href="#" class="btn">Sign up</a>
+  </div>
+
+  <!-- No books to show -->
+  <div id="no-books">
+    <div class="card">
+      <div class="band"></div>
+      <div class="content">
+        No books found. Click on the plus button at the bottom right corner of the page to add a book.
+      </div>
+    </div>
+  </div>
+  
+  <div class="main">
+    <div id="books-display"></div>
+
+    <!-- Add book button -->
+    <a href="#" class="btn" id="add-book-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon">
+        <title>Add Book</title>
+        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+      </svg>
+    </a>
+    
+    <!-- Add new book modal -->
+    <dialog class="custom-dialog" id="add-book-modal">
+      <div class="dialog-heading">Add Book</div>
+      <div class="modal">
+        <form action="#" method="post">
+          <!-- title -->
+          <div class="input-field">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" maxlength="70">
+          </div>
+          <!-- author -->
+          <div class="input-field">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author">
+          </div>
+          <!-- pages -->
+          <div class="input-field">
+            <label for="pages">Pages:</label>
+            <input type="number" id="pages" name="pages">
+          </div>
+          <!-- read -->
+          <div>
+            <input type="checkbox" id="read" name="read">
+            <label for="read">I have read this book</label>
+          </div>
+          <!-- submit button -->
+          <div class="modal-btns">
+            <button type="submit" id="submit-book">Add Book</button>
+            <div id="close-modal">
+              <a href="#">Close</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    
+    <!-- Update book modal -->
+    <dialog class="custom-dialog" id="update-book-modal">
+      <div class="dialog-heading">Update Book</div>
+      <div class="modal">
+        <form action="#" method="post">
+          <!-- title -->
+          <div class="input-field">
+            <label for="update-title">Title:</label>
+            <input type="text" id="update-title" name="update-title" maxlength="70">
+          </div>
+          <!-- author -->
+          <div class="input-field">
+            <label for="update-author">Author:</label>
+            <input type="text" id="update-author" name="update-author">
+          </div>
+          <!-- pages -->
+          <div class="input-field">
+            <label for="update-pages">Pages:</label>
+            <input type="number" id="update-pages" name="update-pages">
+          </div>
+          <!-- read -->
+          <div>
+            <input type="checkbox" id="update-read" name="update-read">
+            <label for="update-read">I have read this book</label>
+          </div>
+          <!-- submit button -->
+          <div class="modal-btns">
+            <button type="submit" id="update-book">Update Book</button>
+            <div id="close-update-modal">
+              <a href="#">Close</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </div>
+</body>
+</html>
